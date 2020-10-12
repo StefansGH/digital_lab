@@ -2,8 +2,12 @@
 <html>
 <head><meta charset="utf-8" />
 
-
 <title>digital_lab</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
 
 <style type="text/css">
     /*!
@@ -13034,17 +13038,20 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
+
+<!-- Custom stylesheet, it must be in the same directory as the html file -->
+<link rel="stylesheet" href="custom.css">
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
@@ -13067,97 +13074,17 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration -->
-
-<style>
-        .cell.nbinteract-left {
-            width: 50%;
-            float: left;
-        }
-
-        .cell.nbinteract-right {
-            width: 50%;
-            float: right;
-        }
-
-        .cell.nbinteract-hide_in > .input {
-            display: none;
-        }
-
-        .cell.nbinteract-hide_out > .output_wrapper {
-            display: none;
-        }
-
-        .cell:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-
-        div.output_subarea {
-            max-width: initial;
-        }
-
-        .jp-OutputPrompt {
-            display: none;
-        }
-    </style></head>
+    <!-- End of mathjax configuration --></head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container">
-      
+    <div class="container" id="notebook-container">
 
-
-
-  <div class="cell text_cell">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-
-
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
-<span class="s1">code_show=true; </span>
-<span class="s1">function code_toggle() {</span>
-<span class="s1"> if (code_show){</span>
-<span class="s1"> $(&#39;div.input&#39;).hide();</span>
-<span class="s1"> } else {</span>
-<span class="s1"> $(&#39;div.input&#39;).show();</span>
-<span class="s1"> }</span>
-<span class="s1"> code_show = !code_show</span>
-<span class="s1">} </span>
-<span class="s1">$( document ).ready(code_toggle);</span>
-<span class="s1">&lt;/script&gt;</span>
-<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
 
-
 <div class="output_area">
-
-    
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -13181,265 +13108,163 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 
-  </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="SmartProbes">SmartProbes<a class="anchor-link" href="#SmartProbes">&#182;</a></h1><h3 id="Digital-Lab:-Nano-Particle-Synthesis">Digital Lab: Nano Particle Synthesis<a class="anchor-link" href="#Digital-Lab:-Nano-Particle-Synthesis">&#182;</a></h3><p>This tool helps you to design nanoparticles with your prefered characteristics. Let's start!</p>
 
 </div>
 </div>
 </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">what</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButtons</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Let</span><span class="se">\&#39;</span><span class="s1">s Experiment!&#39;</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Give me a Recipe&#39;</span><span class="p">,</span> <span class="s1">&#39;Let</span><span class="se">\&#39;</span><span class="s1">s Experiment!&#39;</span><span class="p">],</span>
-    <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="c1"># &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;</span>
-<span class="p">)</span>
-
-<span class="n">seed</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mf">8.2</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Seed:&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.1f&#39;</span><span class="p">)</span>
-
-<span class="n">AgNO3</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">5.7</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mf">16.4</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;AgNO3:&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.1f&#39;</span><span class="p">)</span>
-
-<span class="n">AA</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mf">80.</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mf">80.</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;AA:&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.1f&#39;</span><span class="p">)</span>
-
-<span class="n">HCl</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mf">11.0</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;HCl:&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.1f&#39;</span><span class="p">)</span>
-
-<span class="n">LSPR</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">750</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;LSPR (nm):&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
-
-<span class="n">LSPRTSPR</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">3.</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mf">6.</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;LSPR/TSPR:&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;.1f&#39;</span><span class="p">)</span>
-
-<span class="n">length</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Length (nm):&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
-
-<span class="n">width</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="nb">min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
-    <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Width (nm):&#39;</span><span class="p">,</span>
-    <span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">aspect_ratio</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Aspect Ratio=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
-
-<span class="n">ar</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">interactive_output</span><span class="p">(</span><span class="n">aspect_ratio</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="n">length</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">width</span><span class="p">})</span>
-
-<span class="n">materials</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Design your experiment:&#39;</span><span class="p">)</span>
-
-<span class="c1">#print(&#39;What would you like to do?&#39;)</span>
-<span class="c1">#display(what)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Expected Result Experiment:&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">experiment_result</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">AgNO3</span><span class="p">,</span> <span class="n">AA</span><span class="p">,</span> <span class="n">HCl</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LSPR (nm) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">750</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">seed</span><span class="o">*</span><span class="n">AgNO3</span><span class="o">*</span><span class="n">HCl</span><span class="p">),</span> <span class="mi">0</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LSPR/TSPR = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">3.</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">seed</span><span class="o">*</span><span class="n">AgNO3</span><span class="o">*</span><span class="n">HCl</span><span class="p">),</span> <span class="mi">1</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length (nm) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">seed</span><span class="o">*</span><span class="n">AgNO3</span><span class="o">*</span><span class="n">HCl</span><span class="p">),</span> <span class="mi">0</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;With (nm) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">25</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">seed</span><span class="o">*</span><span class="n">AgNO3</span><span class="o">*</span><span class="n">HCl</span><span class="p">),</span> <span class="mi">0</span><span class="p">)))</span>
-
-<span class="n">result_experiment</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">interactive_output</span><span class="p">(</span><span class="n">experiment_result</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;seed&#39;</span><span class="p">:</span><span class="n">seed</span><span class="p">,</span> <span class="s1">&#39;AgNO3&#39;</span><span class="p">:</span><span class="n">AgNO3</span><span class="p">,</span> <span class="s1">&#39;AA&#39;</span><span class="p">:</span><span class="n">AA</span><span class="p">,</span> <span class="s1">&#39;HCl&#39;</span><span class="p">:</span><span class="n">HCl</span><span class="p">})</span>
-
-
-<span class="k">if</span> <span class="n">what</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="s1">&#39;Give me a Recipe&#39;</span><span class="p">:</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">LSPR</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">LSPRTSPR</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">materials</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">AgNO3</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">HCl</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">result_experiment</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
 
-
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
+ 
+ 
+<div id="b8413fb5-559f-4cca-91f9-8c0b47c8afbe"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#b8413fb5-559f-4cca-91f9-8c0b47c8afbe');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "83f86196ae6546698bf2cfcf3473283f", "version_major": 2, "version_minor": 0}
+</script>
 </div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
 
 </div>
 
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
+ 
+ 
+<div id="d338260c-6677-4abc-9ccc-0502a9eb1bed"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#d338260c-6677-4abc-9ccc-0502a9eb1bed');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "c9fe4e5dfc3c4a0a921cb83091f70147", "version_major": 2, "version_minor": 0}
+</script>
+</div>
 
 </div>
 
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
+ 
+ 
+<div id="29109b19-03b3-483f-9d8f-593b6a471e8d"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#29109b19-03b3-483f-9d8f-593b6a471e8d');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "fc4b888f9430407e82a5feb97aa7c37c", "version_major": 2, "version_minor": 0}
+</script>
+</div>
 
 </div>
 
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
+ 
+ 
+<div id="c9c0116d-e14f-42dc-b1b7-d4d666b9b0c4"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#c9c0116d-e14f-42dc-b1b7-d4d666b9b0c4');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f5ccd1c80e4b48c2a308e4dbe1895ab1", "version_major": 2, "version_minor": 0}
+</script>
+</div>
 
 </div>
 
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
+ 
+ 
+<div id="6dc3dd83-a1a7-4fea-ac1b-338bee618b4f"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#6dc3dd83-a1a7-4fea-ac1b-338bee618b4f');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "8e3dcae550aa4c71b1609ead343a1c69", "version_major": 2, "version_minor": 0}
+</script>
+</div>
 
 </div>
 
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
+ 
+ 
+<div id="e831f994-5ebe-44fe-ad6f-ab18b01dc271"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#e831f994-5ebe-44fe-ad6f-ab18b01dc271');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "dd080aa87aff4426bd25ff0f3b10ca8a", "version_major": 2, "version_minor": 0}
+</script>
 </div>
 
 </div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="0dcd3f42-8319-434b-a0f6-9f224f364aee"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#0dcd3f42-8319-434b-a0f6-9f224f364aee');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "cbd6ece1e4264ec191bdb7e1dcd29438", "version_major": 2, "version_minor": 0}
+</script>
 </div>
 
-  </div>
+</div>
 
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feedback</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Type here&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We appreciate your feedback! :)&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
 
-
 <div class="output_area">
-
-    
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>We appreciate your feedback! :)
@@ -13449,45 +13274,32 @@ $( document ).ready(code_toggle);
 
 <div class="output_area">
 
-    
 
 
 
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-  </div>
-
-
-
-<!-- Loads nbinteract package -->
-<script src="https://unpkg.com/nbinteract-core" async></script>
-<script>
-  (function setupNbinteract() {
-    // If NbInteract hasn't loaded, wait one second and try again
-    if (window.NbInteract === undefined) {
-      setTimeout(setupNbinteract, 1000)
-      return
-    }
-
-    var interact = new window.NbInteract({
-      spec: 'StefansGH/digital_lab/master',
-      baseUrl: 'https://mybinder.org',
-      provider: 'gh',
-    })
-    interact.prepare()
-
-    window.interact = interact
-  })()
+ 
+ 
+<div id="3dab4f62-e66e-422c-b859-95f47898c778"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#3dab4f62-e66e-422c-b859-95f47898c778');
 </script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "c79b2ddf3d9f43f29aca4c5e11d76f16", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
+
+ 
+
+
+</html>
